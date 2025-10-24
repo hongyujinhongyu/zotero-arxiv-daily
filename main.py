@@ -110,6 +110,8 @@ if __name__ == '__main__':
     add_argument('--smtp_port', type=int, help='SMTP port')
     add_argument('--sender', type=str, help='Sender email address')
     add_argument('--receiver', type=str, help='Receiver email address')
+    add_argument('--receiver2', type=str, help='Receiver email address')
+    add_argument('--receiver3', type=str, help='Receiver email address')
     add_argument('--sender_password', type=str, help='Sender email password')
     add_argument(
         "--use_llm_api",
@@ -182,5 +184,7 @@ if __name__ == '__main__':
     html = render_email(papers)
     logger.info("Sending email...")
     send_email(args.sender, args.receiver, args.sender_password, args.smtp_server, args.smtp_port, html)
+    send_email(args.sender, args.receiver2, args.sender_password, args.smtp_server, args.smtp_port, html)
+    send_email(args.sender, args.receiver3, args.sender_password, args.smtp_server, args.smtp_port, html)
     logger.success("Email sent successfully! If you don't receive the email, please check the configuration and the junk box.")
 
